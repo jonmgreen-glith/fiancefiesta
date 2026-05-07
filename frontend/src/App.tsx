@@ -9,7 +9,7 @@ import {
   Track,
 } from "livekit-client";
 
-const LIVEKIT_URL = "wss://fiancefiesta-rnjn7c2g.livekit.cloud";
+const LIVEKIT_URL = import.meta.env.VITE_LIVEKIT_URL;
 
 function App() {
   const localVideoRef = useRef<HTMLVideoElement | null>(null);
@@ -21,13 +21,13 @@ function App() {
     const connectToRoom = async () => {
       try {
         // Request token from backend
-        const response = await fetch("http://localhost:3001/token", {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/token`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            roomName: "test-room",
+            roomName: "jon-fiance-room",
             participantName: `user-${Math.floor(Math.random() * 1000)}`,
           }),
         });
