@@ -5,7 +5,6 @@ import {
   RemoteParticipant,
   RemoteTrack,
   RemoteTrackPublication,
-  LocalVideoTrack,
   Track,
 } from "livekit-client";
 
@@ -68,7 +67,7 @@ function App() {
           RoomEvent.TrackSubscribed,
           (
             track: RemoteTrack,
-            publication: RemoteTrackPublication,
+            _publication: RemoteTrackPublication,
             participant: RemoteParticipant
           ) => {
             console.log(
